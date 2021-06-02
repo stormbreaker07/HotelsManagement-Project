@@ -1,10 +1,7 @@
 package roomsManagement;
 
-import Database.EmptyRooms;
 import services.BookRoom;
 import services.DeleteRoom;
-
-import java.util.ArrayList;
 
 public class RoomManagement implements RoomManagementInterface{
 
@@ -26,34 +23,32 @@ public class RoomManagement implements RoomManagementInterface{
 
 
     @Override
-    public int avialbleRooms(String hotelId)
+    public int avialbleRooms(int hotelId)
     {
 
-        return  EmptyRooms.emptyRoom(hotelId);
+        return  0;//EmptyRooms.emptyRoom(hotelId);
     }
 
 
     @Override
-    public void bookARoom(String hotelId , int seater ) {
-        if(EmptyRooms.emptyRoom(hotelId) > 0) {
+    public void bookARoom(int hotelId , int seater ) {
             BookRoom bookRoom = new BookRoom(hotelId, seater);
             Boolean temp = bookRoom.bookRoom();
             if (temp == true) {
-                EmptyRooms.decreaseEmptyRoom(hotelId);
+                //EmptyRooms.decreaseEmptyRoom(hotelId);
                 System.out.println("Room booked");
             }
-        }
-        else {
+            else {
             System.out.println("NO rooms avilable in this hotel");
         }
     }
 
     @Override
-    public void removeRoom(String hotelId , int seater) {
+    public void removeRoom(int hotelId , int seater) {
         DeleteRoom deleteRoom = new DeleteRoom(hotelId , seater );
         Boolean result = deleteRoom.deleteRoom();
         if(result) {
-            EmptyRooms.increaseRoom(hotelId);
+            //EmptyRooms.increaseRoom(hotelId);
             System.out.println("the customer is checked out the room");
         }
         else {

@@ -1,13 +1,13 @@
 package services;
 
-import Database.RoomsDatabase;
+import database.RoomsDatabase;
 
 public class DeleteRoom {
 
     private int seater;
-    private String hotelId;
+    private int hotelId;
 
-    public DeleteRoom(String hotelId , int seater) {
+    public DeleteRoom(int hotelId , int seater) {
         this.hotelId = hotelId;
         this.seater = seater;
     }

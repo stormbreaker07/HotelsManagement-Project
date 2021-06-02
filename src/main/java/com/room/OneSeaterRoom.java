@@ -3,17 +3,17 @@ package room;
 
 public class OneSeaterRoom implements RoomInterface {
 
-    private String hotelId;
+    private int hotelId;
     public static final int seater = 1;
     private String description ;
 
     @Override
-    public void hotelId(String hotelId) {
+    public void hotelId(int hotelId) {
         this.hotelId = hotelId;
     }
 
     @Override
-    public String getHotelId() {
+    public int getHotelId() {
         return this.hotelId;
     }
 

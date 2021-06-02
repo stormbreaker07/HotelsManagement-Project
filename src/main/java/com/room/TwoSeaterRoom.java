@@ -2,16 +2,16 @@ package room;
 
 public class TwoSeaterRoom implements RoomInterface {
 
-    private String hotelId;
+    private int hotelId;
     public static final int seater = 2;
 
     @Override
-    public void hotelId(String hotelId) {
+    public void hotelId(int hotelId) {
         this.hotelId = hotelId;
     }
 
     @Override
-    public String getHotelId() {
+    public int getHotelId() {
         return this.hotelId;
     }
 

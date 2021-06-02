@@ -13,9 +13,10 @@ import java.util.ArrayList;
 public interface RoomManagementInterface {
 
     public void totalRooms(int totalRooms);
-    public int avialbleRooms(String hotelId);
-    public void bookARoom(String hotelId , int seater);
-    public void removeRoom(String hotelId , int seater);
+    public int avialbleRooms(int hotelId);
+    public void bookARoom(int hotelId , int seater);
+    public void removeRoom(int hotelId , int seater);
+
 
 
 }

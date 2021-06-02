@@ -1,4 +1,4 @@
-package Database;
+package database;
 
 import room.RoomInterface;
 
@@ -13,27 +13,29 @@ public class RoomsDatabase {
     private RoomsDatabase() {}
 
     //map store key value
-    private static Map<String , RoomInterface> roomsData= null;
+    private static int id;
+    private static Map<Integer , RoomInterface> roomsData= null;
 
     //one time object initialization
     public static void initiate() {
         if(roomsData == null) {
             roomsData = new HashMap<>();
+            id = 1;
         }
     }
 
 
     //add room in the database
     public static void addRoom(RoomInterface room) {
-        roomsData.put( String.valueOf(room.hashCode()) , room );
+        roomsData.put( id,room);
     }
 
 
     //remove the room from database
-    public static Boolean deleteRoom(String hotelId , int seater) {
+    public static Boolean deleteRoom(int hotelId , int seater) {
 
-        for( Map.Entry<String , RoomInterface> room : roomsData.entrySet()) {
-            if(room.getValue().seater()==seater && room.getValue().getHotelId().equals(hotelId) ) {
+        for( Map.Entry<Integer , RoomInterface> room : roomsData.entrySet()) {
+            if(room.getValue().seater()==seater && room.getValue().getHotelId() == hotelId ) {
                 roomsData.remove(room.getKey());
                 return true;
             }

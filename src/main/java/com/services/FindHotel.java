@@ -1,13 +1,13 @@
 package services;
 
 import hotel.Hotel;
-import Database.HotelDatabase;
+import database.HotelDatabase;
 
 public class FindHotel {
 
-    private String hotelId;
+    private int hotelId;
 
-    public FindHotel(String hotelId)  {
+    public FindHotel(int hotelId)  {
         this.hotelId = hotelId;
     }
 

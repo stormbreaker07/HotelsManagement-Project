@@ -1,6 +1,6 @@
 package services;
 
-import Database.RoomsDatabase;
+import database.RoomsDatabase;
 import hotel.HotelInterface;
 import room.OneSeaterRoom;
 import room.RoomInterface;
@@ -8,10 +8,10 @@ import room.TwoSeaterRoom;
 
 public class BookRoom {
 
-    private String hotelId;
+    private int hotelId;
     private int seater;
 
-    public BookRoom(String hotelId , int seater) {
+    public BookRoom(int hotelId , int seater) {
         this.hotelId = hotelId;
         this.seater = seater;
     }
