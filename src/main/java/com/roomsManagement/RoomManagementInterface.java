@@ -1,9 +1,5 @@
-package roomsManagement;
+package com.roomsManagement;
 
-
-import room.RoomInterface;
-
-import java.util.ArrayList;
 
 //this interface will use to track the total rooms
 //rooms avilable .

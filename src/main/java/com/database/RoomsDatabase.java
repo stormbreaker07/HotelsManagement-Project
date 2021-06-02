@@ -1,12 +1,13 @@
-package database;
+package com.database;
 
-import room.RoomInterface;
+import com.room.RoomInterface;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
 //singleton design pattern
+// added comments
 public class RoomsDatabase {
 
     //create private constructor so no object can be created
@@ -27,7 +28,11 @@ public class RoomsDatabase {
 
     //add room in the database
     public static void addRoom(RoomInterface room) {
+
         roomsData.put( id,room);
+        int hotelId = room.getHotelId();
+        HotelDatabase.decreaseAvailableRooms(hotelId);
+
     }
 
 

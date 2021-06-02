@@ -1,7 +1,7 @@
-package services;
+package com.services;
 
-import hotel.HotelInterface;
-import database.HotelDatabase;
+import com.hotel.HotelInterface;
+import com.database.HotelDatabase;
 
 public class UpdateHotel {
 

@@ -1,9 +1,8 @@
-package database;
+package com.database;
 
-import exceptions.HotelAlreadyRegisteredException;
-import exceptions.HotelNotRegisteredException;
-import hotel.Hotel;
-import hotel.HotelInterface;
+import com.exceptions.HotelAlreadyRegisteredException;
+import com.hotel.Hotel;
+import com.hotel.HotelInterface;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,5 +57,14 @@ public class HotelDatabase {
         return data;
     }
 
+    public static void decreaseAvailableRooms(int hotelId) {
+        HotelInterface hotel = search(hotelId);
+        hotel.setEmptyRooms(hotel.getEmptyRooms()-1);
+    }
+
+    public static void increaseAvailableRooms(int hotelId) {
+        HotelInterface hotel = search(hotelId);
+        hotel.setEmptyRooms(hotel.getEmptyRooms()+1);
+    }
 
 }

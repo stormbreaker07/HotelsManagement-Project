@@ -1,4 +1,4 @@
-package room;
+package com.room;
 
 public interface RoomInterface {
 

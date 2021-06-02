@@ -1,4 +1,4 @@
-package hotel;
+package com.hotel;
 
 /**
  *hotel class create a hotel object ,
@@ -20,11 +20,13 @@ public class Hotel implements HotelInterface{
 
 
     //constructor
-    public Hotel(String name , String location , int rating , int totalRooms) {
+    public Hotel(String name , String location , int rating , int totalRooms , int oneSeaterRoomCost , int twoSeaterRoomCost) {
         this.hotelName = name;
         this.location = location;
         this.rating = rating;
         this.totalRooms = totalRooms;
+        this.oneSeaterRoomCost = oneSeaterRoomCost;
+        this.twoSeaterRoomCost = twoSeaterRoomCost;
         emptyRooms = totalRooms;
     }
 

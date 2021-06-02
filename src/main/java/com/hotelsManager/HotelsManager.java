@@ -1,24 +1,24 @@
-package hotelsManager;
+package com.hotelsManager;
 
 
-import database.HotelDatabase;
-import hotel.Hotel;
-import hotel.HotelInterface;
-import services.AddHotel;
-import services.FindHotel;
-import services.RemoveHotel;
-import services.UpdateHotel;
+import com.database.HotelDatabase;
+import com.hotel.Hotel;
+import com.hotel.HotelInterface;
+import com.services.AddHotel;
+import com.services.FindHotel;
+import com.services.RemoveHotel;
+import com.services.UpdateHotel;
 
 import java.util.Map;
 
 //it mainly create hotel from the data extracted from the database about the hotel
-public class HotelsManager implements HotelsManagerInterface{
+public class HotelsManager implements HotelsManagerInterface {
 
 
 
     @Override
-    public int registerHotel(String hotelName , String location, int star , int totalRooms) {
-        Hotel hotel = new Hotel(hotelName , location , star , totalRooms);
+    public int registerHotel(String hotelName , String location, int star , int totalRooms , int oneSeaterRoomCost , int twoSeaterRoomCost) {
+        Hotel hotel = new Hotel(hotelName , location , star , totalRooms , oneSeaterRoomCost , twoSeaterRoomCost);
         AddHotel addHotel = new AddHotel(hotel);
         int hotelId = addHotel.add();
 

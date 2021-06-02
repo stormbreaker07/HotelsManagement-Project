@@ -1,10 +1,9 @@
-package services;
+package com.services;
 
-import exceptions.HotelAlreadyRegisteredException;
-import exceptions.HotelNotRegisteredException;
-import hotel.Hotel;
-import hotel.HotelInterface;
-import database.HotelDatabase;
+import com.exceptions.HotelAlreadyRegisteredException;
+import com.hotel.Hotel;
+import com.hotel.HotelInterface;
+import com.database.HotelDatabase;
 
 public class AddHotel{
 

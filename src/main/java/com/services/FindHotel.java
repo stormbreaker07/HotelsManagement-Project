@@ -1,7 +1,7 @@
-package services;
+package com.services;
 
-import hotel.Hotel;
-import database.HotelDatabase;
+import com.hotel.Hotel;
+import com.database.HotelDatabase;
 
 public class FindHotel {
 

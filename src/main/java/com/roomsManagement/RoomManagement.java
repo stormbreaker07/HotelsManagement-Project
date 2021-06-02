@@ -1,7 +1,7 @@
-package roomsManagement;
+package com.roomsManagement;
 
-import services.BookRoom;
-import services.DeleteRoom;
+import com.services.BookRoom;
+import com.services.DeleteRoom;
 
 public class RoomManagement implements RoomManagementInterface{
 

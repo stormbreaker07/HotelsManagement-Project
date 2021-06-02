@@ -1,6 +1,6 @@
-package services;
+package com.services;
 
-import database.HotelDatabase;
+import com.database.HotelDatabase;
 
 public class RemoveHotel {
 

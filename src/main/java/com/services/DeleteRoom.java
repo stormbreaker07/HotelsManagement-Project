@@ -1,6 +1,6 @@
-package services;
+package com.services;
 
-import database.RoomsDatabase;
+import com.database.RoomsDatabase;
 
 public class DeleteRoom {
 

@@ -1,10 +1,10 @@
-package services;
+package com.services;
 
-import database.RoomsDatabase;
-import hotel.HotelInterface;
-import room.OneSeaterRoom;
-import room.RoomInterface;
-import room.TwoSeaterRoom;
+import com.database.RoomsDatabase;
+import com.hotel.HotelInterface;
+import com.room.OneSeaterRoom;
+import com.room.RoomInterface;
+import com.room.TwoSeaterRoom;
 
 public class BookRoom {
 

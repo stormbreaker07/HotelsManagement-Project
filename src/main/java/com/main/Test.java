@@ -1,12 +1,12 @@
-package Main;
+package com.main;
 
-import database.HotelDatabase;
-import database.RoomsDatabase;
-import hotel.Hotel;
-import hotel.HotelInterface;
-import hotelsManager.HotelsManager;
-import hotelsManager.HotelsManagerInterface;
-import roomsManagement.RoomManagementInterface;
+import com.database.HotelDatabase;
+import com.database.RoomsDatabase;
+import com.hotel.Hotel;
+import com.hotel.HotelInterface;
+import com.hotelsManager.HotelsManager;
+import com.hotelsManager.HotelsManagerInterface;
+import com.roomsManagement.RoomManagementInterface;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ public class Test {
     public static void main(String[] args) {
 
         //initializing the database
-        //EmptyRooms.initialize();
+
         RoomsDatabase.initiate();
         HotelDatabase.initiateDatabase();
 
@@ -60,8 +60,13 @@ public class Test {
                         String rating = scan.nextLine();
                         System.out.print("Type hotel totalRooms : ");
                         String totalRooms = scan.nextLine();
+                        System.out.print("Const of oneSeater Room : ");
+                        String oneSeaterRoomCost = scan.nextLine();
+                        System.out.print("Const of twoSeater Room : ");
+                        String twoSeaterRoomCost = scan.nextLine();
                         int hotelId = hotelsManager.registerHotel(hotelName, hotelLocation,
-                                Integer.parseInt(rating), Integer.parseInt(totalRooms));
+                                Integer.parseInt(rating), Integer.parseInt(totalRooms),Integer.parseInt(oneSeaterRoomCost),
+                                Integer.parseInt(twoSeaterRoomCost));
                         System.out.println("the hotel id is :" + hotelId);
                     } else if (operation.equals("1")) {
                         System.out.print("type the hotelId : ");
@@ -75,9 +80,15 @@ public class Test {
                         String rating = scan.nextLine();
                         System.out.print("Type hotel totalRooms : ");
                         String totalRooms = scan.nextLine();
+                        System.out.print("Const of oneSeater Room : ");
+                        String oneSeaterRoomCost = scan.nextLine();
+                        System.out.print("Const of twoSeater Room : ");
+                        String twoSeaterRoomCost = scan.nextLine();
+
 
                         HotelInterface newHotelData = new Hotel(hotelName, hotelLocation, Integer.parseInt(rating)
-                                , Integer.parseInt(totalRooms));
+                                , Integer.parseInt(totalRooms),Integer.parseInt(oneSeaterRoomCost),
+                                Integer.parseInt(twoSeaterRoomCost));
                         hotelsManager.updateHotel(Integer.parseInt(hotelId), newHotelData);
                         System.out.println("the new hotel id is : " + hotelId);
                     } else if (operation.equals("2")) {
