@@ -1,6 +1,8 @@
 package com.services;
 
 import com.database.RoomsDatabase;
+import com.exceptions.HotelIdNotExistException;
+import com.exceptions.NoSuchRoomBookedException;
 
 public class DeleteRoom {
 
@@ -14,8 +16,13 @@ public class DeleteRoom {
 
     public Boolean deleteRoom() {
 
-        return RoomsDatabase.deleteRoom(hotelId , seater);
-
+        try {
+        return RoomsDatabase.deleteRoom(hotelId, seater);
+        }
+        catch(NoSuchRoomBookedException e) {
+            System.out.println(e);
+        }
+        return false;
     }
 
 

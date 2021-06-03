@@ -5,36 +5,20 @@ import com.services.DeleteRoom;
 
 public class RoomManagement implements RoomManagementInterface{
 
-    private String hotelId = null;
-    private int totalRoom;
-    private int seaterRoom;
+    private BookRoom bookRoom;
+    DeleteRoom deleteRoom;
 
-    public RoomManagement(String hotelId , int seaterRooms) {
-        this.hotelId = hotelId;
-        this.seaterRoom = seaterRooms;
-    }
-
-
-    @Override
-    public void totalRooms(int totalRoom) {
-        this.totalRoom = totalRoom;
-    }
-
-
-
-    @Override
-    public int avialbleRooms(int hotelId)
-    {
-
-        return  0;//EmptyRooms.emptyRoom(hotelId);
+    public RoomManagement() {
+        this.bookRoom = null;
+        this.deleteRoom = null;
     }
 
 
     @Override
     public void bookARoom(int hotelId , int seater ) {
-            BookRoom bookRoom = new BookRoom(hotelId, seater);
-            Boolean temp = bookRoom.bookRoom();
-            if (temp == true) {
+            bookRoom = new BookRoom(hotelId, seater);
+            Boolean result = bookRoom.bookRoom();
+            if (result == true) {
                 //EmptyRooms.decreaseEmptyRoom(hotelId);
                 System.out.println("Room booked");
             }
@@ -45,7 +29,7 @@ public class RoomManagement implements RoomManagementInterface{
 
     @Override
     public void removeRoom(int hotelId , int seater) {
-        DeleteRoom deleteRoom = new DeleteRoom(hotelId , seater );
+        deleteRoom = new DeleteRoom(hotelId , seater );
         Boolean result = deleteRoom.deleteRoom();
         if(result) {
             //EmptyRooms.increaseRoom(hotelId);

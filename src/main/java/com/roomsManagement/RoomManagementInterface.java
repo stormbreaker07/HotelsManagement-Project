@@ -8,8 +8,6 @@ package com.roomsManagement;
 //delete a room
 public interface RoomManagementInterface {
 
-    public void totalRooms(int totalRooms);
-    public int avialbleRooms(int hotelId);
     public void bookARoom(int hotelId , int seater);
     public void removeRoom(int hotelId , int seater);
 

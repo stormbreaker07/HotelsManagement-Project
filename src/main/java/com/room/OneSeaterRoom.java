@@ -1,11 +1,13 @@
 package com.room;
 
 
-public class OneSeaterRoom implements RoomInterface {
+public class OneSeaterRoom extends GeneralRoom {
 
     private int hotelId;
     public static final int seater = 1;
     private String description ;
+
+
 
     @Override
     public void hotelId(int hotelId) {
@@ -28,10 +30,6 @@ public class OneSeaterRoom implements RoomInterface {
         System.out.println("you can call for room service from here");
     }
 
-    @Override
-    public void timeOFStay() {
-        System.out.println("time of passanger stay (how many days a passenger stays)");
-    }
 
 
     @Override

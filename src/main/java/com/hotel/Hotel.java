@@ -15,8 +15,8 @@ public class Hotel implements HotelInterface{
     private String hotelName;
     private String location;
     private int emptyRooms;
-    private double oneSeaterRoomCost = 1000;
-    private double twoSeaterRoomCost = 2000;
+    private int oneSeaterRoomCost = 1000;
+    private int twoSeaterRoomCost = 2000;
 
 
     //constructor
@@ -47,6 +47,16 @@ public class Hotel implements HotelInterface{
     @Override
     public void setEmptyRooms(int rooms) {
         this.emptyRooms = rooms;
+    }
+
+    @Override
+    public void setOneSeaterRoomPrice(int price) {
+        this.oneSeaterRoomCost = price;
+    }
+
+    @Override
+    public void setTwoSeaterRoomPrice(int price) {
+        this.twoSeaterRoomCost = price;
     }
 
 
@@ -127,4 +137,26 @@ public class Hotel implements HotelInterface{
         return this.emptyRooms;
     }
 
+    @Override
+    public int getOneSeaterRoomPrice() {
+        return this.oneSeaterRoomCost;
+    }
+
+    @Override
+    public int getTwoSeaterRoomPrice() {
+        return this.twoSeaterRoomCost;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "rating=" + rating +
+                ", totalRooms=" + totalRooms +
+                ", hotelName='" + hotelName + '\'' +
+                ", location='" + location + '\'' +
+                ", emptyRooms=" + emptyRooms +
+                ", oneSeaterRoomCost=" + oneSeaterRoomCost +
+                ", twoSeaterRoomCost=" + twoSeaterRoomCost +
+                '}';
+    }
 }

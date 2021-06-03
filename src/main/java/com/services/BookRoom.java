@@ -1,6 +1,8 @@
 package com.services;
 
 import com.database.RoomsDatabase;
+import com.exceptions.HotelIdNotExistException;
+import com.exceptions.HotelNotRegisteredException;
 import com.hotel.HotelInterface;
 import com.room.OneSeaterRoom;
 import com.room.RoomInterface;
@@ -10,17 +12,21 @@ public class BookRoom {
 
     private int hotelId;
     private int seater;
+    private FindHotel findHotel;
+    private RoomInterface room;
 
     public BookRoom(int hotelId , int seater) {
         this.hotelId = hotelId;
         this.seater = seater;
+        this.findHotel = null;
+        this.room = null;
     }
 
     public Boolean bookRoom() {
-        FindHotel findHotel = new FindHotel(hotelId);
+        findHotel = new FindHotel(hotelId);
         HotelInterface hotel = findHotel.findHotel();
         if(hotel != null) {
-            RoomInterface room = null;
+            room = null;
             if(seater == 1) {
                 room = new OneSeaterRoom();
                 room.hotelId(hotelId);
@@ -35,8 +41,13 @@ public class BookRoom {
             }
             //finally adding the room in database
             if(room!=null) {
-                RoomsDatabase.addRoom(room);
-                return true;
+                try {
+                    RoomsDatabase.addRoom(room);
+                    return true;
+                }
+                catch(HotelIdNotExistException e) {
+                    System.out.println(e);
+                }
             }
         }
         else {

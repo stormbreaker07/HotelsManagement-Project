@@ -1,19 +1,8 @@
 package com.room;
 
-public class TwoSeaterRoom implements RoomInterface {
+public class TwoSeaterRoom extends GeneralRoom {
 
-    private int hotelId;
     public static final int seater = 2;
-
-    @Override
-    public void hotelId(int hotelId) {
-        this.hotelId = hotelId;
-    }
-
-    @Override
-    public int getHotelId() {
-        return this.hotelId;
-    }
 
     @Override
     public void roomDescription() {
@@ -24,11 +13,6 @@ public class TwoSeaterRoom implements RoomInterface {
     public void roomService() {
         //by comnbining builder and abstract factory design pattern
         System.out.println("you can call for room service from here");
-    }
-
-    @Override
-    public void timeOFStay() {
-        System.out.println("time of passanger stay (how many days a passenger stays)");
     }
 
 

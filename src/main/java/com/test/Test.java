@@ -1,12 +1,14 @@
-package com.main;
+package com.test;
 
 import com.database.HotelDatabase;
 import com.database.RoomsDatabase;
-import com.hotel.Hotel;
 import com.hotel.HotelInterface;
 import com.hotelsManager.HotelsManager;
 import com.hotelsManager.HotelsManagerInterface;
+import com.roomsManagement.RoomManagement;
 import com.roomsManagement.RoomManagementInterface;
+import com.services.DeleteRoom;
+import com.services.FindHotel;
 
 import java.util.Scanner;
 
@@ -21,9 +23,7 @@ public class Test {
 
         //create important objects
         HotelsManagerInterface hotelsManager = new HotelsManager();
-        RoomManagementInterface roomManagement;
-        roomManagement = null;
-
+        RoomManagementInterface roomManagement = new RoomManagement();
 
         System.out.println("<< HELLO USER >>");
         Scanner scan = new Scanner(System.in);
@@ -68,9 +68,13 @@ public class Test {
                                 Integer.parseInt(rating), Integer.parseInt(totalRooms),Integer.parseInt(oneSeaterRoomCost),
                                 Integer.parseInt(twoSeaterRoomCost));
                         System.out.println("the hotel id is :" + hotelId);
-                    } else if (operation.equals("1")) {
+                    }
+                    else if (operation.equals("1")) {
+
                         System.out.print("type the hotelId : ");
                         String hotelId = scan.nextLine();
+                        FindHotel findHotel = new FindHotel(Integer.parseInt(hotelId));
+                        System.out.println(findHotel.findHotel().toString());
 
                         System.out.print("Type hotel Name : ");
                         String hotelName = scan.nextLine();
@@ -85,11 +89,8 @@ public class Test {
                         System.out.print("Const of twoSeater Room : ");
                         String twoSeaterRoomCost = scan.nextLine();
 
-
-                        HotelInterface newHotelData = new Hotel(hotelName, hotelLocation, Integer.parseInt(rating)
-                                , Integer.parseInt(totalRooms),Integer.parseInt(oneSeaterRoomCost),
-                                Integer.parseInt(twoSeaterRoomCost));
-                        hotelsManager.updateHotel(Integer.parseInt(hotelId), newHotelData);
+                        hotelsManager.updateHotel(Integer.parseInt(hotelId),hotelName, hotelLocation,rating
+                                ,totalRooms,oneSeaterRoomCost,twoSeaterRoomCost );
                         System.out.println("the new hotel id is : " + hotelId);
                     } else if (operation.equals("2")) {
                         System.out.print("hotel id : ");
@@ -100,8 +101,7 @@ public class Test {
                         String hotelId = scan.nextLine();
                         HotelInterface getHotel = hotelsManager.getMyHotel(Integer.parseInt(hotelId));
                         if (getHotel != null) {
-                            System.out.println(getHotel.getName() + " " + getHotel.getLocation() + " "
-                                    + getHotel.getRating() + " " + getHotel.getTotalRooms());
+                            System.out.println(getHotel);
                         } else {
                             System.out.println("invalid hotel id.");
                         }
@@ -110,6 +110,71 @@ public class Test {
                         break;
                     } else {
                         System.out.println("invalid input try again");
+                    }
+                }
+            }
+            else if(typeOfUser.equals("1")) {
+                String oper = "";
+                while (!oper.equals("-1")) {
+                    System.out.println("type 0 to get all hotels name");
+                    System.out.println("type 1 to search for a particular hotel");
+                    System.out.println("type 2 to book a hotel");
+                    System.out.println("type 3 to see avialable rooms in the hotel");
+                    System.out.println("type 4 to checkout from the room");
+                    System.out.println("type -1 to exit");
+
+                    oper = scan.nextLine();
+
+                    switch (oper) {
+                        case "0": {
+                            hotelsManager.allHotel();
+                            break;
+                        }
+                        case "1": {
+                            System.out.print("hotel Id : ");
+                            String hotelId = scan.nextLine();
+                            HotelInterface hotel = hotelsManager.getMyHotel(Integer.parseInt(hotelId));
+                            System.out.println(hotel);
+                            break;
+                        }
+                        case "2": {
+                            System.out.print("hotel Id : ");
+                            String hotelId = scan.nextLine();
+                            System.out.println("1 or 2 seater room");
+                            String seater = scan.nextLine();
+                            roomManagement.bookARoom(Integer.parseInt(hotelId) , Integer.parseInt(seater));
+                            break;
+                        }
+                        case "3": {
+                            System.out.print("hotel Id : ");
+                            String hotelId = scan.nextLine();
+                            System.out.println("empty rooms : " + hotelsManager.getMyHotel(Integer.parseInt(hotelId)));
+                            break;
+                        }
+                        case "4": {
+                            System.out.print("hotel Id : ");
+                            String hotelId = scan.nextLine();
+                            System.out.println("1 or 2 seater room");
+                            String seater = scan.nextLine();
+                            DeleteRoom deleteRoom = new DeleteRoom(Integer.parseInt(hotelId), Integer.parseInt(seater));
+                            Boolean result = deleteRoom.deleteRoom();
+                            if(result == true) {
+                                System.out.println("operation successful");
+                            }
+                            else
+                            {
+                                System.out.println("operation unsuccessful");
+                            }
+                            break;
+                        }
+                        case "-1": {
+                            System.out.println("Exiting.....");
+                            break;
+                        }
+                        default: {
+                            System.out.println("invalid input");
+                            break;
+                        }
                     }
                 }
             } else if (typeOfUser.equals("-1")) {

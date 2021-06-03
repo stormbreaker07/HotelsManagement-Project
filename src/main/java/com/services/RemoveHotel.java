@@ -2,6 +2,10 @@ package com.services;
 
 import com.database.HotelDatabase;
 
+
+/**
+ * RemoveHotel unregister the hotel in hotel Database
+ */
 public class RemoveHotel {
 
     private int id;

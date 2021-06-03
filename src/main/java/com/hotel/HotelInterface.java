@@ -16,4 +16,5 @@ public interface HotelInterface {
     public int getEmptyRooms();
     public int getOneSeaterRoomPrice();
     public int getTwoSeaterRoomPrice();
+    public String toString();
 }
