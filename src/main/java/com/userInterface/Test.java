@@ -1,4 +1,4 @@
-package com.test;
+package com.userInterface;
 
 import com.database.HotelDatabase;
 import com.database.RoomsDatabase;

@@ -3,6 +3,7 @@ package com.database;
 
 import com.customer.Customer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -11,13 +12,24 @@ import java.util.ArrayList;
  * two main operation are register a user.
  * check if user exist in the database
  */
-public class RegisteredUserDatabase {
-
-    private RegisteredUserDatabase() {}
+public class RegisteredUserDatabase implements Serializable {
 
     private static ArrayList<Customer> data = null;
+    private static RegisteredUserDatabase instance = null;
 
-    public void initialization( ) {
+    private RegisteredUserDatabase() {
+        initialization();
+    }
+
+    public static RegisteredUserDatabase getInstance() {
+        if(instance == null) {
+            instance = new RegisteredUserDatabase();
+        }
+        return instance;
+    }
+
+
+    public static void initialization( ) {
         if(data == null) {
             data = new ArrayList<>();
         }

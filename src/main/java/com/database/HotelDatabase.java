@@ -6,6 +6,7 @@ import com.exceptions.HotelNotRegisteredException;
 import com.hotel.Hotel;
 import com.hotel.HotelInterface;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,15 +14,29 @@ import java.util.Map;
 /**
  * singleton design pattern used to store hotel data or say hotel object
  */
-public class HotelDatabase {
+public class HotelDatabase implements Serializable {
 
     private static int id;
     private static Map<Integer , HotelInterface> data = null;
-
+    private static HotelDatabase instance;
     /**
      * private constructor so it cant be initialized from anywhere
      */
-    private HotelDatabase() {}
+    private HotelDatabase() {
+        initiateDatabase();
+    }
+
+    /**
+     * call private constructor use to get class object instance
+     * @return object of HotelDatabase
+     */
+    public static HotelDatabase getInstance() {
+        if(instance == null) {
+            instance = new HotelDatabase();
+        }
+        return instance;
+
+    }
 
 
     /**
