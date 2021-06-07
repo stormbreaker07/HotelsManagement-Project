@@ -120,7 +120,12 @@ public class HotelsManager implements HotelsManagerInterface {
         }
 
         if(!totalRooms.equals("")) {
+            int allRooms = hotel.getTotalRooms();
             hotel.setTotalRooms(Integer.parseInt(totalRooms));
+            //change available rooms
+            int availableRooms = hotel.getEmptyRooms();
+            int bookedRooms = allRooms - availableRooms;
+            hotel.setEmptyRooms(Integer.parseInt(totalRooms)-bookedRooms);
         }
 
         if(!oneSeaterRoomCost.equals("")) {

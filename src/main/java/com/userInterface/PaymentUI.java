@@ -18,6 +18,7 @@ public class PaymentUI {
         scan = input;
         paymentManager = new PaymentManager();
         this.amount = amount;
+
     }
 
     public void insertData() {

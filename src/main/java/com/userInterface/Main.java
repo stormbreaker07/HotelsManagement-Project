@@ -4,27 +4,47 @@ import com.database.HotelDatabase;
 import com.database.PaymentTransactionDatabase;
 import com.database.RegisteredUserDatabase;
 import com.database.RoomsDatabase;
-import com.persistDatabase.SerializeDataBase;
+import com.hotel.Hotel;
+
 
 import java.util.Scanner;
 
 public class Main {
 
+    private static HotelOwnerUi hotelOwnerUi;
+    private static CustomerGui customerGui;
+
     public static void main(String[] args) {
-        HotelDatabase hotelDatabase = HotelDatabase.getInstance();
-        PaymentTransactionDatabase paymentTransactionDatabase = PaymentTransactionDatabase.getInstance();
-        RegisteredUserDatabase registeredUserDatabase = RegisteredUserDatabase.getInstance();
-        RoomsDatabase roomsDatabase = RoomsDatabase.getInstance();
-
-        SerializeDataBase serializeDataBase = new SerializeDataBase();
+       RoomsDatabase.initiate();
+       PaymentTransactionDatabase.initialize();
+        HotelDatabase.initiateDatabase();
+        RegisteredUserDatabase.initialization();
 
 
-//        PaymentTransactionDatabase.initialize();
-//        Scanner scan = new Scanner(System.in);
-//        String amount = scan.nextLine();
-//
-//        PaymentUI paymentUI = new PaymentUI(scan , amount);
-//        paymentUI.insertData();
+        Scanner scan = new Scanner(System.in);
+        String st = "0";
+
+        System.out.println("HELLO USER");
+        while(!st.equals("-1")) {
+            System.out.println("type 1 if you are a Customer : " );
+            System.out.println("type 0 if you are a hotelOwner : ");
+            System.out.println("type -1 to exit from the app : ");
+            st = scan.nextLine();
+            if(st.equals("1")) {
+                customerGui = new CustomerGui(scan);
+            }
+            else if(st.equals("0")) {
+               hotelOwnerUi = new HotelOwnerUi(scan);
+            }
+            else if(st.equals("-1")) {
+                System.out.println("Exiting from the App ....");
+                break;
+            }
+            else {
+                System.out.println("invalid input please try again");
+            }
+        }
+
 
 
     }
