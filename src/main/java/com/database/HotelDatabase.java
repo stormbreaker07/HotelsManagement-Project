@@ -49,6 +49,9 @@ public class HotelDatabase implements Serializable {
         }
     }
 
+    public static void initiateDatabase(Map<Integer , HotelInterface> newData) {
+        data = newData;
+    }
 
     /**
      * use to store the object of newly registered hotel
@@ -88,7 +91,9 @@ public class HotelDatabase implements Serializable {
         data.put(id , newHotel);
     }
 
-
+    public static void updateId() {
+        id = data.size()+1;
+    }
     /**
      * search for a hotel using the hotel id
      * @param id
@@ -146,5 +151,9 @@ public class HotelDatabase implements Serializable {
         catch(HotelNotRegisteredException e) {
             throw new HotelIdNotExistException("check the hotel id again , no hotel with this id exist");
         }
+    }
+
+    public static void deleteWholeDatbase() {
+        data.clear();
     }
 }

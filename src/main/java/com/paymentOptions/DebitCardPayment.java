@@ -1,8 +1,9 @@
 package com.paymentOptions;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class DebitCardPayment implements Payment{
+public class DebitCardPayment implements Payment {
 
     private String paymentType = "Debit card";
     private String accountNumber;

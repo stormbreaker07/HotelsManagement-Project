@@ -16,7 +16,7 @@ public class RegisterUser {
         customer = null;
     }
 
-    public Boolean registerUser(String name , String email , String phoneNumber , String password) throws CustomerAlreadyRegisteredException {
+    public Boolean registerUser(String name , String phoneNumber , String email , String password) throws CustomerAlreadyRegisteredException {
 
         customer = RegisteredUserDatabase.findCustomer(email , password);
         if(customer == null) {
@@ -25,7 +25,7 @@ public class RegisterUser {
             return true;
         }
         else {
-            throw new CustomerAlreadyRegisteredException("Customer with " + email + "is already a registerd customer");
+            throw new CustomerAlreadyRegisteredException("Customer with " + email + " is already a registerd customer");
         }
     }
 }

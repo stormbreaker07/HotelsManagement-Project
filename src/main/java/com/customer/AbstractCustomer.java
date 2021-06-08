@@ -1,6 +1,8 @@
 package com.customer;
 
-public interface AbstractCustomer {
+import java.io.Serializable;
+
+public interface AbstractCustomer extends Serializable {
 
     public void setFullName(String fullName);
     public void setPhoneNumber(String phoneNumber);

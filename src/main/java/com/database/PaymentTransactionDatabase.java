@@ -2,6 +2,7 @@ package com.database;
 
 
 import com.exceptions.InvalidTransactionIdException;
+import com.hotel.HotelInterface;
 import com.paymentOptions.Payment;
 
 import java.io.Serializable;
@@ -23,6 +24,10 @@ public class PaymentTransactionDatabase implements Serializable {
      */
     private PaymentTransactionDatabase() {
         initialize();
+    }
+
+    public static void initiateDatabase(Map<String , Payment> newData) {
+        data = newData;
     }
 
 
@@ -49,6 +54,8 @@ public class PaymentTransactionDatabase implements Serializable {
             data = new HashMap<String , Payment>();
         }
     }
+
+
 
     public static void addTransaction(String transactionId , Payment payment) {
         data.put(transactionId , payment);

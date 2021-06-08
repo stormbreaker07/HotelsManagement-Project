@@ -1,5 +1,7 @@
 package com.customer;
 
+import java.io.Serializable;
+
 /**
  * Customer class , use to create customer objects.
  * used to user data as a object in database.

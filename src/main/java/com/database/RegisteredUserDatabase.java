@@ -2,9 +2,12 @@ package com.database;
 
 
 import com.customer.Customer;
+import com.hotel.HotelInterface;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * singleton class
@@ -35,6 +38,10 @@ public class RegisteredUserDatabase implements Serializable {
         }
     }
 
+    public static void initiateDatabase(ArrayList<Customer> newData) {
+        data = newData;
+    }
+
     /**
      * add customer pbject in the database
      * @param customer
@@ -58,6 +65,11 @@ public class RegisteredUserDatabase implements Serializable {
             }
         }
         return null;
+    }
+
+    public static ArrayList<Customer> wholeData() {
+
+        return data;
     }
 
 }

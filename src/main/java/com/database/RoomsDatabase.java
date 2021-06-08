@@ -1,11 +1,14 @@
 package com.database;
 
+import com.customer.Customer;
 import com.exceptions.HotelIdNotExistException;
 import com.exceptions.HotelNotRegisteredException;
 import com.exceptions.NoSuchRoomBookedException;
+import com.hotel.HotelInterface;
 import com.room.RoomInterface;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,6 +42,9 @@ public class RoomsDatabase implements Serializable {
     }
 
 
+    public static void initiateDatabase(Map<Integer , RoomInterface> newData) {
+        roomsData = newData;
+    }
 
     /**
      * one time HashMap initialization
@@ -50,7 +56,9 @@ public class RoomsDatabase implements Serializable {
         }
     }
 
-
+    public static void updateId() {
+        id = roomsData.size()+1;
+    }
 
     /**
      * add room in the database
@@ -85,5 +93,9 @@ public class RoomsDatabase implements Serializable {
         return false;
     }
 
+    public static Map<Integer , RoomInterface> wholeData() {
+
+        return roomsData;
+    }
 
 }

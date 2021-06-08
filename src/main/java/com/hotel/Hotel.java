@@ -1,5 +1,7 @@
 package com.hotel;
 
+import java.io.Serializable;
+
 /**
  *hotel class create a hotel object ,
  * a hotel object get hotelname , location , rating and totalrooms
@@ -7,7 +9,7 @@ package com.hotel;
  * hotel prices are there
  */
 
-public class Hotel implements HotelInterface{
+public class Hotel implements HotelInterface, Serializable {
 
 
     private int rating;

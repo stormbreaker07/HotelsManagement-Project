@@ -1,5 +1,6 @@
 package com.paymentOptions;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 public class CreditCardPayment implements Payment{

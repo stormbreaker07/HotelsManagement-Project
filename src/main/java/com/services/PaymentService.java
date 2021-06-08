@@ -20,6 +20,7 @@ public class PaymentService {
     public void addTransaction(Payment card) {
         int transactionId = card.hashCode();
         PaymentTransactionDatabase.addTransaction(String.valueOf(transactionId) , card);
+
     }
 
 

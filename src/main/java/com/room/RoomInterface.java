@@ -1,7 +1,9 @@
 package com.room;
 
 
-public interface RoomInterface {
+import java.io.Serializable;
+
+public interface RoomInterface extends Serializable {
 
     public void hotelId(int hotelId);
     public int getHotelId();

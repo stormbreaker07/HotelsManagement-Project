@@ -4,7 +4,9 @@ import com.database.HotelDatabase;
 import com.database.PaymentTransactionDatabase;
 import com.database.RegisteredUserDatabase;
 import com.database.RoomsDatabase;
-import com.hotel.Hotel;
+import com.persistDatabase.DeserializeDatabase;
+import com.persistDatabase.SerializeDataBase;
+
 
 
 import java.util.Scanner;
@@ -13,6 +15,7 @@ public class Main {
 
     private static HotelOwnerUi hotelOwnerUi;
     private static CustomerGui customerGui;
+    private static SerializeDataBase serializeDataBase;
 
     public static void main(String[] args) {
        RoomsDatabase.initiate();
@@ -20,6 +23,14 @@ public class Main {
         HotelDatabase.initiateDatabase();
         RegisteredUserDatabase.initialization();
 
+        //deserialize database here in start
+        DeserializeDatabase deserializeDatabase = new DeserializeDatabase();
+        deserializeDatabase.deserializeNow();
+
+
+        //update id in database
+        HotelDatabase.updateId();
+        RoomsDatabase.updateId();
 
         Scanner scan = new Scanner(System.in);
         String st = "0";
@@ -37,6 +48,7 @@ public class Main {
                hotelOwnerUi = new HotelOwnerUi(scan);
             }
             else if(st.equals("-1")) {
+                serializeDataBase = new SerializeDataBase();
                 System.out.println("Exiting from the App ....");
                 break;
             }

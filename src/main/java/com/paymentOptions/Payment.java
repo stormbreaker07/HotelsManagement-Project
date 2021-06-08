@@ -1,6 +1,8 @@
 package com.paymentOptions;
 
-public interface Payment {
+import java.io.Serializable;
+
+public interface Payment extends Serializable {
 
     public void cardPayment(String accountNumber , String amount );
 }

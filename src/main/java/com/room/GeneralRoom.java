@@ -1,5 +1,7 @@
 package com.room;
 
+import java.io.Serializable;
+
 public class GeneralRoom implements RoomInterface {
 
     protected int hotelId;

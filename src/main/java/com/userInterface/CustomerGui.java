@@ -39,7 +39,7 @@ public class CustomerGui {
         String oper = "";
         while (!oper.equals("-1")) {
                 System.out.println("type 0 to get all hotels name");
-                System.out.println("type 1 to search for a particular hotel");
+                System.out.println("type 1 to search for a particular room");
                 System.out.println("type 2 to book a hotel");
                 System.out.println("type 3 to see avialable rooms in the hotel");
                 System.out.println("type 4 to checkout from the room");
@@ -54,7 +54,7 @@ public class CustomerGui {
                 case "1": {
                     System.out.print("hotel Id : ");
                     String hotelId = scan.nextLine();
-                    hotelsManager.getMyHotel(Integer.parseInt(hotelId));
+                    System.out.println(hotelsManager.getMyHotel(Integer.parseInt(hotelId)));
                     break;
                 }
                 case "2": {
@@ -128,7 +128,7 @@ public class CustomerGui {
 
         }
         else {
-            System.out.println("no empty room avilable in this hotel");
+            System.out.println("no empty room available in this hotel");
         }
 
     }
